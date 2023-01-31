@@ -1,6 +1,11 @@
 import { useContext } from 'react';
-import { GlobalContext } from '../context/GlobalContext.js';
+import { useGlobalContext } from '../context/GlobalContext.js';
+import { useAuthContext } from '../context/AuthContext.js';
 
 export function useGlobal() {
-  useContext(GlobalContext);
+  useContext(useGlobalContext);
+}
+
+export function useAuth() {
+  useContext(useAuthContext);
 }
