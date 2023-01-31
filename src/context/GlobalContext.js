@@ -1,6 +1,6 @@
 import React, { createContext } from 'react';
 
 export const GlobalContext = createContext('');
-export const GlobalContextProvider = ({ children }) => {
+export const GlobalProvider = ({ children }) => {
   return <GlobalContext.Provider>{children}</GlobalContext.Provider>;
 };
