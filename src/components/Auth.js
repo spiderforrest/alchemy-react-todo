@@ -1,13 +1,14 @@
 import React, { useState } from 'react';
-import useAuthContext from '../context/AuthContext.js';
+import { useAuthContext } from '../context/AuthContext.js';
 import { signInUser, signUpUser } from '../services/client.js';
 
 export default function Auth(signUpBool) {
   const { setUser } = useAuthContext();
-  let [email, setEmail] = '';
+  let [email, setEmail] = useState('');
   let [passwd, setPasswd] = useState('');
   function authHandler() {
-    if (email && passwd) return;
+    console.log(email, passwd);
+    if (!email && !passwd) return;
     if (signUp) {
       setUser(signUpUser(email, passwd));
     } else {
