@@ -36,3 +36,15 @@ export async function signUpUser(email, password) {
     })
   );
 }
+
+export async function addTodo(body) {
+  const response = await client
+    .from('todos')
+    .insert({ description: body, user_id: client.auth.user().id });
+  return checkError(response);
+}
+
+export async function getTodos() {
+  const response = await client.from('todos').select('*').match({ user_id: client.auth.user().id });
+  return checkError(response);
+}

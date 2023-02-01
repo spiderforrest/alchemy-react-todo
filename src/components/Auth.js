@@ -7,7 +7,6 @@ export default function Auth(signUpBool) {
   let [email, setEmail] = useState('');
   let [passwd, setPasswd] = useState('');
   function authHandler() {
-    console.log(email, passwd);
     if (!email && !passwd) return;
     if (signUp) {
       setUser(signUpUser(email, passwd));
